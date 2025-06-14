@@ -2,6 +2,7 @@ import {Router, Request, Response} from 'express';
 import * as itemsController from '../controllers/items'
 import * as supermercadosController from '../controllers/supermercados';
 
+
 const router:Router = Router();
 
 router.get('/items',
