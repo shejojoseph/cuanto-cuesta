@@ -12,21 +12,21 @@ import logoCentralMadeirense from "../../img/logo-central-madeirense.png"
 describe('Items component', () => {
   it('Renders logoAutomercadoElPlazas when SupermercadoId === 1', () => {
     const item = { SupermercadoId: 1, item_name: 'cloro', price: 180 } // mock data
-    render(<Items itemsOO={item} />) // render is to display <Items />.
+    render(<Items itemsOO={item} />) // render to display <Items />.
     const img = screen.getByRole('img')
     expect(img).toHaveAttribute('src', logoAutomercadoElPlazas)
   })
 
   it('Renders logoExcelsiorGama when SupermercadoId === 2', () => {
     const item = { SupermercadoId: 2, item_name: 'manzana', price: 35 }
-    render(<Items itemsOO={item} />) // render is to display <Items />.
+    render(<Items itemsOO={item} />) // render to display <Items />.
     const img = screen.getByRole('img')
     expect(img).toHaveAttribute('src', logoExcelsiorGama)
   })
 
   it('Renders logoCentralMadeirense when SupermercadoId other than 1 or 2', () => {
     const item = { SupermercadoId: 10, item_name: 'fresa', price: 20 }
-    render(<Items itemsOO={item} />) // render is to display <Items />.
+    render(<Items itemsOO={item} />) // render to display <Items />.
     const img = screen.getByRole('img')
     expect(img).toHaveAttribute('src', logoCentralMadeirense)
   })
