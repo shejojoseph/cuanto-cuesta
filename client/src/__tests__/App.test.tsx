@@ -1,3 +1,4 @@
+// The environment setup and configuration, and also the testing structure is suggested by AI tool
 import App from '../App';
 import { describe, it, expect, vi, beforeEach } from 'vitest'
 import { render, screen, waitFor } from '@testing-library/react'

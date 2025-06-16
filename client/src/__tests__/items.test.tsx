@@ -1,3 +1,4 @@
+// The environment setup and configuration, and also the testing structure is suggested by AI tool
 import { describe, it, expect } from 'vitest'
 import * as matchers from '@testing-library/jest-dom/matchers'
 expect.extend(matchers)
@@ -19,14 +20,14 @@ describe('Items component', () => {
 
   it('Renders logoExcelsiorGama when SupermercadoId === 2', () => {
     const item = { SupermercadoId: 2, item_name: 'manzana', price: 35 }
-    render(<Items itemsOO={item} />) // render to display <Items />.
+    render(<Items itemsOO={item} />)
     const img = screen.getByRole('img')
     expect(img).toHaveAttribute('src', logoExcelsiorGama)
   })
 
   it('Renders logoCentralMadeirense when SupermercadoId other than 1 or 2', () => {
     const item = { SupermercadoId: 10, item_name: 'fresa', price: 20 }
-    render(<Items itemsOO={item} />) // render to display <Items />.
+    render(<Items itemsOO={item} />)
     const img = screen.getByRole('img')
     expect(img).toHaveAttribute('src', logoCentralMadeirense)
   })
