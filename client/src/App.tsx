@@ -46,7 +46,7 @@ const App: FC = () => {
 
   const getItems = async (): Promise<void> => {
     try {
-      const response = await fetch('http://192.168.31.133:3000/itemTags', { // which server are you using instead of localhost?
+      const response = await fetch('http://192.168.31.133:3000/itemTags', { // Other than localhost, this one is for mobile access
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
