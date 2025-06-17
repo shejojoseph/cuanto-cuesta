@@ -20,10 +20,10 @@ export interface Item {
 
 const App: FC = () => {
   const getInitalDarkMode = () : boolean => {
-    const saved = localStorage.getItem('theme')
+    const saved = localStorage.getItem('theme') // Check localStorage for saved preference
     if (saved === 'dark') return true
     if (saved === 'light') return false
-    return window.matchMedia('(prefers-color-scheme: dark)').matches
+    return window.matchMedia('(prefers-color-scheme: dark)').matches // If not found, use system preference via media query, matches is a boolean property
   }
 
   const [isDark, setIsDark] = useState<boolean>(getInitalDarkMode)
@@ -40,17 +40,6 @@ const App: FC = () => {
 
     console.log('this is items', items);
 
-  /* function getItems() {
-    fetch('http://192.168.31.133:3000/itemTags', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify(tags),
-        })
-    .then((res) => res.json())
-    .then((data) => setItems(data));
-  } */
 
   const getItems = async (): Promise<void> => {
     try {

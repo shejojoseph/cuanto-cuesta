@@ -2,7 +2,7 @@ import React, { useState } from "react";
 
 interface DarkModeToggleProps {
   isDark: boolean
-  toggleTheme:() => void
+  toggleTheme:() => void // function to switch between themes
 }
 
 const DarkModeToggle: React.FC<DarkModeToggleProps> = ({ isDark, toggleTheme }) => {

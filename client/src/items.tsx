@@ -17,9 +17,7 @@ interface ItemsProps {
   itemsOg?: Items[];
 }
 
-//function Items(props) {
 const Items: React.FC<ItemsProps> = ({ itemsOO }) => {
-  //function logoSelection() {
   const logoSelection = (): string => { /* the URL of files are presented as string type */
     //console.log('props', props);
   if (itemsOO.SupermercadoId === 1) {

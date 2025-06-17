@@ -46,7 +46,7 @@ const Search: React.FC<SearchProps> = ({ tags, setTags, items }) => {
     setTags(newTags);
   };
 
-  //const handleTagClick = (index) => {
+
   const handleTagClick = (index: number): void => {
     console.log('The tag at index ' + index + ' was clicked');
   };
