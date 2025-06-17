@@ -15,7 +15,7 @@ body{
   display: flex;
   flex-direction: column;
   width: 70%;
-  overflow-x: hidden; 
+  overflow-x: hidden;
 }
 
 .logo{
@@ -33,18 +33,18 @@ body{
   align-items: center;
   flex-direction: column;
   width: 100%;
-  padding: 0 10px; 
+  padding: 0 10px;
   box-sizing: border-box;
 }
 
 h1 {
-  font-size: 1.5em; 
+  font-size: 1.5em;
   text-align: center;
   color: #333;
 }
 
 .greenblock {
-  width: 100%; 
+  width: 100%;
   min-height: 300px;
   background-color: rgb(13, 68, 13);
   border-radius: 10px;
@@ -87,6 +87,28 @@ h1 {
   display: flex;
   flex-direction: column;
   width: 100%;
-  overflow-x: hidden; 
+  overflow-x: hidden;
 }
+}
+
+:root {
+  --bg-color: #ffffff;
+  --text-color: #333333;
+
+}
+
+body.dark {
+  --bg-color: #1e1e1e;
+  --text-color: #dddddd;
+
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.toggleButton {
+  color: var(--text-color);
 }

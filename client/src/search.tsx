@@ -59,7 +59,7 @@ const Search: React.FC<SearchProps> = ({ tags, setTags, items }) => {
 
   return (
     <div className='searchBar'>
-      <h1> ¿Qué precio quieres saber? </h1>
+      <h1 style={{ color: 'var(--text-color)' }}> ¿Qué precio quieres saber? </h1>
       <div className='searchBar20 search-container'>
         <ReactTags
         classNames={{

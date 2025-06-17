@@ -5,6 +5,7 @@ import Items from "./items"
 import Search from "./search"
 // import { format } from 'date-fns';
 import { Tag as ReactTag } from 'react-tag-input';
+import DarkModeToggle from './DarkModeToggle'
 
 import './App.css'
 
@@ -17,16 +18,23 @@ export interface Item {
   SupermercadoId: number;
 }
 
-/* export interface Tag {
-  id: string;
-  text: string;
-} */
-
-/* function App() {
-  const [items, setItems] = useState([]);
-  const [tags, setTags] = useState([]); */
-
 const App: FC = () => {
+  const getInitalDarkMode = () : boolean => {
+    const saved = localStorage.getItem('theme')
+    if (saved === 'dark') return true
+    if (saved === 'light') return false
+    return window.matchMedia('(prefers-color-scheme: dark)').matches
+  }
+
+  const [isDark, setIsDark] = useState<boolean>(getInitalDarkMode)
+
+  useEffect(() => {
+    document.body.classList.toggle('dark', isDark)
+    localStorage.setItem('theme', isDark ? 'dark' : 'light')
+  }, [isDark])
+
+
+
   const [items, setItems] = useState<Item[]>([]);
   const [tags, setTags] = useState<ReactTag[]>([]);
 
@@ -72,6 +80,10 @@ const App: FC = () => {
     <div className='dashboard'>
       <div className='navbar'>
         <img src={logo} className='logo'></img>
+        <DarkModeToggle
+          isDark={isDark}
+          toggleTheme={() => setIsDark(prev => !prev)}
+        />
       </div>
       <div className='bodyBlock'>
         <div className='search'>
