@@ -1,31 +1,21 @@
-import {Router, Request, Response} from 'express';
+//import {Router, Request, Response} from 'express';
+import Router from '@koa/router';
 import * as itemsController from '../controllers/items'
 import * as supermercadosController from '../controllers/supermercados';
 
 
-const router:Router = Router();
+const router:Router =new Router();
 
-router.get('/items',
-  (req:Request, res:Response) =>
-    itemsController.getItems(req, res)
-);
+router.get('/items', itemsController.getItems);
 
-router.post('/items',
-  (req:Request, res:Response) =>
-    itemsController.postItems(req, res)
-);
+router.post('/items', itemsController.postItems);
 
-router.get('/supermercados',
-  (req:Request, res:Response) =>
-    supermercadosController.getSupermercados(req, res));
+router.get('/supermercados', supermercadosController.getSupermercados);
 
-router.post('/supermercados',
-  (req:Request, res:Response) =>
-    supermercadosController.postSupermercados(req, res));
+router.post('/supermercados', supermercadosController.postSupermercados);
 
-router.post('/itemTags',
-  (req:Request, res:Response) =>
-    itemsController.itemTags(req, res));
+
+router.post('/itemTags', itemsController.itemTags);
 
 
 

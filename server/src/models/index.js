@@ -4,7 +4,6 @@ const Sequelize = require('sequelize');
 
 // Load environment variables from the .env file
 require('dotenv').config();
-
 // changing the config to use .env values
 
 /* const config = {

@@ -1,4 +1,5 @@
-import express, {Request, Response} from 'express';
+//import express, {Request, Response} from 'express';
+import { Context } from 'koa';
 const db = require('../models')
 
 interface PostSupermercados {
@@ -8,25 +9,27 @@ interface PostSupermercados {
 
 
 
-async function getSupermercados (req:Request, res:Response): Promise<void> {
+async function getSupermercados (ctx: Context): Promise<void> {
   try {
     const result = await db.Supermercados.findAll({});
-    res.status(200).json(result);
+    ctx.status = 200;
+    ctx.body = result;
   } catch (err) {
     console.log('err', err);
-    res.sendStatus(500);
+    ctx.throw(500);
   }
 }
 
-async function postSupermercados (req:Request<{}, {}, PostSupermercados>, res:Response): Promise<void> {
-  const { supermercados_name, supermercados_id } = req.body;
+async function postSupermercados (ctx: Context): Promise<void> {
+  const { supermercados_name, supermercados_id } = ctx.request.body as PostSupermercados;
 
   try {
     const result = await db.Supermercados.create({ supermercados_name, supermercados_id });
-    res.status(201).json(result);
+    ctx.status = 201;
+    ctx.body = result;
   } catch (err) {
     console.log('err', err);
-    res.sendStatus(500)
+    ctx.throw(500);
   }
 }
 
