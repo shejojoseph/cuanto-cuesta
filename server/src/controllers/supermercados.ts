@@ -1,5 +1,5 @@
 import express, {Request, Response} from 'express';
-const db = require('../models')
+import db from '../models';
 
 interface PostSupermercados {
   supermercados_name: string;

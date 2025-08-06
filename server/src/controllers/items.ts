@@ -1,6 +1,6 @@
 import express, {Request, Response} from 'express';
-const db = require('../models');
-const { Op } = require('sequelize');
+import db from '../models';
+import { Op } from 'sequelize';
 
 interface RequestBody {
   SupermercadoId: number;

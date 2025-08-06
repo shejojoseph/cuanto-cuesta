@@ -6,7 +6,9 @@
     "start": "node dist/index.js",
     "build": "tsc",
     "dev": "nodemon src/start.ts",
-    "test": "cross-env NODE_ENV=test jest"
+    "test": "cross-env NODE_ENV=test jest",
+    "db:seed:dev": "ts-node scripts/seed.ts development",
+    "db:seed:test": "ts-node scripts/seed.ts test"
   },
   "author": "",
   "license": "ISC",

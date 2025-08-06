@@ -8,7 +8,7 @@ const envPath = environment === 'test' ? '.env.test' : '.env';
 
 dotenv.config({path: path.resolve(process.cwd(), envPath)});
 
-import db from '../src/models';
+import db from '../src/models/index';
 
 async function seedDatabase() {
   console.log(`Starting to seed the '${environment}' database...`);
@@ -43,10 +43,30 @@ async function seedDatabase() {
 
     for (const item of items) {
       const price = Number(item.price_bs);
-      if (NaN(price)) {
-        console.warn(`Skipping item with invalid price: ${item.product_name}`)
+      if (isNaN(price)) {
+        console.warn(`Skipping item with invalid price: ${item.product_name}`);
+        continue;
       }
-    }
 
+      await db.Items.create({
+        SupermercadoId: item.supermarket,
+        item_name: item.product_name,
+        item_name_toLowerCase: item.product_name.toLowerCase(),
+        item_id: item.product_id,
+        price: price,
+      });
+
+      console.log(`Created item: ${item.product_name}`);
+    }
+    console.log('✅ Seeding completed successfully.');
+
+  } catch (error) {
+    console.error('❌ An error occurred during the seeding process: ', error);
+    process.exit(1);
+  } finally {
+    await db.sequelize.close();
+    console.log('Database connection closed.')
   }
 }
+
+seedDatabase();
